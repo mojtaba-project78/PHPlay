@@ -84,6 +84,24 @@
 		}
 
 		//===============================================================================
+		//===============================================================================
+		//===============================================================================
+		// ### all function defined here...
+
+		public function get_about()
+		{
+			XLog::log(
+				array(
+					'm_runtime' => $this->m_runtime->get(),
+					'm_version' => $this->m_platform->get_version(),
+					'm_functionName' => $this->_functions[$this->getToken()],
+					'm_token' => $this->getToken(),
+					'm_version_log' => $this->m_platform->get_version_log()
+				)
+			);
+		}
+
+		//===============================================================================
 		public function my_example_function()
 		{
 			XLog::log('hello wordl');
