@@ -79,6 +79,18 @@ $m_function->__initialization(
 		}
 	);
 ```
+
+- result debugging mode:
+```bash
+{
+    "m_debugging": true,
+    "m_message": "Hello World!",
+    "m_api": "powered by phplay.",
+    "m_version": "0.1",
+    "m_runtime": "0.000"
+}
+```
+
 ## Default code
 
 The code that is active by default is implemented in this way! ( index.php )
