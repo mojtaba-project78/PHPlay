@@ -134,8 +134,3 @@ The code that is active by default is implemented in this way! ( index.php )
 	$m_function->runToken();
 ?>
 ```
-
-
-```bash
-
-```
