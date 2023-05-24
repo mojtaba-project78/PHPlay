@@ -24,7 +24,7 @@
 					),
 					array(
 						'm_function' => XAppRuntime::className(),
-						'm_text' => $this->logger(XAppRuntime::className(), self::LOGGER_COMPLATED, ['className'])
+						'm_text' => $this->logger(XAppRuntime::className(), self::LOGGER_COMPLATED, ['className'], "class builded.")
 					),
 
 					array(
@@ -37,7 +37,32 @@
 					),
 					array(
 						'm_function' => XFunctionManagement::className(),
-						'm_text' => $this->logger(XFunctionManagement::className(), self::LOGGER_COMPLATED, ['XFunctionManagement'])
+						'm_text' => $this->logger(XFunctionManagement::className(), self::LOGGER_COMPLATED, ['XFunctionManagement'], "class builded.")
+					),
+				]
+			);
+
+			$this->add_multiple_log(
+				[
+					array(
+						'm_function' => XErrorManagement::className(),
+						'm_text' => $this->logger(XErrorManagement::className(), self::LOGGER_COMPLATED, ['POST', 'GET'], "class builded.")
+					),
+					array(
+						'm_function' => 'HeaderManagement',
+						'm_text' => $this->logger('HeaderManagement', self::LOGGER_UPDATED, ['XErrorManagement', 'XFunctionManagement'], "new class defined.")
+					),
+					array(
+						'm_function' => 'index',
+						'm_text' => $this->logger('index', self::LOGGER_UPDATED, ['my_example_function_post'])
+					),
+					array(
+						'm_function' => XFunctionManagement::className(),
+						'm_text' => $this->logger(XFunctionManagement::className(), self::LOGGER_UPDATED, ['className', '__construct', 'my_example_function', 'my_example_function_post'], "post & get validation & 'm_status' in functions added.")
+					),
+					array(
+						'm_function' => XLog::className(),
+						'm_text' => $this->logger(XLog::className(), self::LOGGER_UPDATED, ['log', 'p', 'dump'], "This function is more personalized")
 					),
 				]
 			);
