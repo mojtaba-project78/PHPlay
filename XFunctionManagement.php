@@ -1,11 +1,10 @@
 <?php
-	include_once 'XVersionManagement.php';
+	include_once 'HeaderManagement.php';
 
 	class XFunctionManagement extends XVersionManagement
 	{
 		// TODO: get class name
-		public static function className()
-		{
+		public static function className() {
 			return get_class();
 		}
 
@@ -15,12 +14,14 @@
 
 		protected $m_platform = null;
 		protected $m_runtime = null;
+		protected $m_error = null;
 
 		//===============================================================================
-		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime )
+		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XErrorManagement $m_error )
 		{
 			$this->m_platform = $m_platform;
 			$this->m_runtime = $m_runtime;
+			$this->m_error = $m_error;
 		}
 
 		//===============================================================================
@@ -58,6 +59,7 @@
 			if ( !array_key_exists($this->getToken(), $this->_functions) )
 				XLog::log(
 					array(
+						'm_status' => false,
 						'm_version' => $this->m_platform->get_version(),
 						'm_runtime' => $this->m_runtime->get(),
 						'm_message' => 'token not exist',
@@ -69,6 +71,7 @@
 			if(!array_search( $this->_functions[$this->getToken()], get_class_methods($this)))
 				XLog::log(
 					array(
+						'm_status' => false,
 						'm_version' => $this->m_platform->get_version(),
 						'm_runtime' => $this->m_runtime->get(),
 						'm_message' => 'function not exist',
@@ -92,6 +95,7 @@
 		{
 			XLog::log(
 				array(
+					'm_status' => true,
 					'm_runtime' => $this->m_runtime->get(),
 					'm_version' => $this->m_platform->get_version(),
 					'm_functionName' => $this->_functions[$this->getToken()],
@@ -104,7 +108,45 @@
 		//===============================================================================
 		public function my_example_function()
 		{
-			XLog::log('hello wordl');
+			$m_array = array(
+				'm_arg1' => '',
+				'm_arg2' => ''
+			);
+
+			$this->m_error->GET($m_array);
+
+			XLog::log(
+				array(
+					'm_status' => true,
+					'm_runtime' => $this->m_runtime->get(),
+					'm_version' => $this->m_platform->get_version(),
+					'm_functionName' => $this->_functions[$this->getToken()],
+					'm_token' => $this->getToken(),
+					'm_array' => $m_array
+				)
+			);
+		}
+
+		//===============================================================================
+		public function my_example_function_post()
+		{
+			$m_array = array(
+				'm_arg1' => '',
+				'm_arg2' => ''
+			);
+
+			$this->m_error->POST($m_array);
+
+			XLog::log(
+				array(
+					'm_status' => true,
+					'm_runtime' => $this->m_runtime->get(),
+					'm_version' => $this->m_platform->get_version(),
+					'm_functionName' => $this->_functions[$this->getToken()],
+					'm_token' => $this->getToken(),
+					'm_array' => $m_array
+				)
+			);
 		}
 	}
 
