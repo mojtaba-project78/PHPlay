@@ -28,7 +28,7 @@ RewriteRule ^(.+)$ index.php/$1 [L]
 - In the code below, we consider a default function for the API, which means if we call the site as an empty parameter, for example
 www.example.com/
 The function that is called is:
-get_about() is defined in the XFunctionManagement class
+`get_about()` is defined in the `XFunctionManagement `class
 
 ```bash
 if(!isset($_SERVER['PATH_INFO']))
@@ -37,7 +37,7 @@ if(!isset($_SERVER['PATH_INFO']))
 		$m_function->setToken(ltrim($_SERVER['PATH_INFO'], '/'));
 ```
 
-- We must send the name of the function that we have in XFunctionManagement class as value
+- We must send the name of the function that we have in `XFunctionManagement` class as value
 
 ```bash
 $m_function->_functions['FUNCTION_TOKEN'] = 'FUNCTION_NAME';
@@ -90,10 +90,9 @@ $m_function->__initialization(
     "m_runtime": "0.000"
 }
 ```
-
 ## Default code
 
-The code that is active by default is implemented in this way! ( index.php )
+The code that is active by default is implemented in this way! ( `index.php` )
 
 ```bash
   <?php
@@ -134,3 +133,70 @@ The code that is active by default is implemented in this way! ( index.php )
 	$m_function->runToken();
 ?>
 ```
+
+## Last Update Log
+
+```bash
+{
+    "m_status": true,
+    "m_runtime": "0.000",
+    "m_version": "0.2",
+    "m_functionName": "get_about",
+    "m_token": "a9a0849fbc3eb1f0ca2bde125debd4a7a58c80683d9023e621b7c18cb9c7084d",
+    "m_version_log": [
+        {
+            "0.2": [
+                {
+                    "m_function": "XErrorManagement",
+                    "m_text": "XErrorManagement this functions ( POST & GET ) complated.( class builded. )"
+                },
+                {
+                    "m_function": "HeaderManagement",
+                    "m_text": "HeaderManagement this functions ( XErrorManagement & XFunctionManagement ) updated( new class defined. )"
+                },
+                {
+                    "m_function": "index",
+                    "m_text": "index this functions ( my_example_function_post ) updated"
+                },
+                {
+                    "m_function": "XFunctionManagement",
+                    "m_text": "XFunctionManagement this functions ( className & __construct & my_example_function & my_example_function_post ) updated( post & get validation & 'm_status' in functions added. )"
+                },
+                {
+                    "m_function": "XLog",
+                    "m_text": "XLog this functions ( log & p & dump ) updated( This function is more personalized )"
+                }
+            ]
+        },
+        {
+            "0.1": [
+                {
+                    "m_function": "XPlatform",
+                    "m_text": "XPlatform this functions ( version_adder & add_single_log & add_multiple_log ) complated."
+                },
+                {
+                    "m_function": "XPlatform",
+                    "m_text": "XPlatform this functions ( get_version & get_version_log & logger ) complated."
+                },
+                {
+                    "m_function": "XAppRuntime",
+                    "m_text": "XAppRuntime this functions ( className ) complated.( class builded. )"
+                },
+                {
+                    "m_function": "XFunctionManagement",
+                    "m_text": "XFunctionManagement this functions ( XFunctionManagement ) complated.( debugger mode defined )"
+                },
+                {
+                    "m_function": "index",
+                    "m_text": "index this functions ( index & __initialization ) updated( debugger options defined )"
+                },
+                {
+                    "m_function": "XFunctionManagement",
+                    "m_text": "XFunctionManagement this functions ( XFunctionManagement ) complated.( class builded. )"
+                }
+            ]
+        }
+    ]
+}
+```
+
