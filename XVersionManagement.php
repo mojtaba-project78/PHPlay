@@ -103,7 +103,7 @@
 					break;
 
 				case self::LOGGER_UPDATED:
-					$log_message = sprintf("%s this functions %s updated", $className, $functions);
+					$log_message = sprintf("%s this functions %s updated.", $className, $functions);
 					if(!empty($m_text))
 						$log_message .= sprintf("( %s )", $m_text);
 					break;
