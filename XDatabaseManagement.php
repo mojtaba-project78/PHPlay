@@ -6,7 +6,7 @@
 	trait __database_connection
 	{
 		protected $hostname = "localhost";
-		protected $database = "databaseName";
+		protected $database = "mysql";
 		protected $username = "root";
 		protected $password = "";
 	}
