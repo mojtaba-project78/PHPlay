@@ -15,13 +15,15 @@
 		protected $m_platform = null;
 		protected $m_runtime = null;
 		protected $m_error = null;
+		protected $m_database = null;
 
 		//===============================================================================
-		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XErrorManagement $m_error )
+		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XErrorManagement $m_error, XDatabaseManagement &$m_database )
 		{
 			$this->m_platform = $m_platform;
 			$this->m_runtime = $m_runtime;
 			$this->m_error = $m_error;
+			$this->m_database = $m_database;
 		}
 
 		//===============================================================================
@@ -108,11 +110,16 @@
 		//===============================================================================
 		public function my_example_function()
 		{
+			//TODO: array of input
 			$m_array = array(
 				'm_arg1' => '',
 				'm_arg2' => ''
 			);
 
+			//TODO: sqlinection blocked here..
+			$this->m_database->fixArrayInput($m_array);
+
+			//TODO: validation get data
 			$this->m_error->GET($m_array);
 
 			XLog::log(
@@ -130,11 +137,16 @@
 		//===============================================================================
 		public function my_example_function_post()
 		{
+			//TODO: array of input
 			$m_array = array(
 				'm_arg1' => '',
 				'm_arg2' => ''
 			);
 
+			//TODO: sqlinection blocked here..
+			$this->m_database->fixArrayInput($m_array);
+
+			//TODO: validation post data
 			$this->m_error->POST($m_array);
 
 			XLog::log(
