@@ -1,5 +1,6 @@
 <?php
 	define("MAXIMUM_ELEMENTS", 30);
+	define("PLATFORM_NAME", "PHPlay");
 
 	//===============================================================================
 	// ### include 'PHPlay' headers here...
@@ -13,22 +14,26 @@
 
 	//===============================================================================
 	// ### defined global variables here...
-	// ### XPlatform
-	$m_platform = new XPlatform();
-	$m_platform->init_version();
 
 	// ### XAppRuntime
 	$m_runtime = new XAppRuntime();
 	$m_runtime->start();
 
+	// ### XPlatform
+	$m_platform = new XPlatform();
+	$m_platform->init_version();
+
+	// ### XLog
+	$m_log = new XLog($m_platform, $m_runtime);
+
 	// ### XDatabaseManagement
 	$m_database = new XDatabaseManagement($m_platform, $m_runtime);
 
 	// ### XErrorManagement
-	$m_error = new XErrorManagement($m_platform, $m_runtime);
+	$m_error = new XErrorManagement($m_platform, $m_runtime, $m_log);
 
 	// ### XFunctionManagement
-	$m_function = new XFunctionManagement($m_platform, $m_runtime, $m_error, $m_database);
+	$m_function = new XFunctionManagement($m_platform, $m_runtime, $m_error, $m_database, $m_log);
 
 	//===============================================================================
 	// ### include 'Api' headers here...
