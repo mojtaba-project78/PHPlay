@@ -112,11 +112,15 @@
 					),
 					array(
 						'm_function' => 'HeaderManagement',
-						'm_text' => $this->logger('HeaderManagement', self::LOGGER_UPDATED, [ 'XErrorManagement', 'XLog', 'XFunctionManagement' ], "added field XLog to constructors.")
+						'm_text' => $this->logger('HeaderManagement', self::LOGGER_UPDATED, [ 'XErrorManagement', 'XLog', 'XFunctionManagement', 'XDatabaseManagement' ], "added field XLog to constructors.")
 					),
 					array(
 						'm_function' => 'index',
 						'm_text' => $this->logger('index', self::LOGGER_UPDATED, [ 'main' ], "update log item.")
+					),
+					array(
+						'm_function' => XDatabaseManagement::className(),
+						'm_text' => $this->logger(XDatabaseManagement::className(), self::LOGGER_UPDATED, [ '__construct' ], "update log item & new field XLog added.")
 					),
 				]
 			);
