@@ -16,14 +16,16 @@
 		protected $m_runtime = null;
 		protected $m_error = null;
 		protected $m_database = null;
+		protected $m_log = null;
 
 		//===============================================================================
-		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XErrorManagement $m_error, XDatabaseManagement &$m_database )
+		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XErrorManagement $m_error, XDatabaseManagement &$m_database, XLog &$m_log )
 		{
 			$this->m_platform = $m_platform;
 			$this->m_runtime = $m_runtime;
 			$this->m_error = $m_error;
 			$this->m_database = $m_database;
+			$this->m_log = $m_log;
 		}
 
 		//===============================================================================
@@ -59,11 +61,9 @@
 		public function runToken()
 		{
 			if ( !array_key_exists($this->getToken(), $this->_functions) )
-				XLog::log(
+				$this->m_log->log(
 					array(
 						'm_status' => false,
-						'm_version' => $this->m_platform->get_version(),
-						'm_runtime' => $this->m_runtime->get(),
 						'm_message' => 'token not exist',
 						'm_function' => 'NaN',
 						'm_token' => $this->getToken()
@@ -71,11 +71,9 @@
 				);
 
 			if(!array_search( $this->_functions[$this->getToken()], get_class_methods($this)))
-				XLog::log(
+				$this->m_log->log(
 					array(
 						'm_status' => false,
-						'm_version' => $this->m_platform->get_version(),
-						'm_runtime' => $this->m_runtime->get(),
 						'm_message' => 'function not exist',
 						'm_function' => $this->_functions[$this->getToken()],
 						'm_token' => $this->getToken()
@@ -95,11 +93,9 @@
 
 		public function get_about()
 		{
-			XLog::log(
+			$this->m_log->log(
 				array(
 					'm_status' => true,
-					'm_runtime' => $this->m_runtime->get(),
-					'm_version' => $this->m_platform->get_version(),
 					'm_functionName' => $this->_functions[$this->getToken()],
 					'm_token' => $this->getToken(),
 					'm_version_log' => $this->m_platform->get_version_log()
@@ -122,11 +118,9 @@
 			//TODO: validation get data
 			$this->m_error->GET($m_array);
 
-			XLog::log(
+			$this->m_log->log(
 				array(
 					'm_status' => true,
-					'm_runtime' => $this->m_runtime->get(),
-					'm_version' => $this->m_platform->get_version(),
 					'm_functionName' => $this->_functions[$this->getToken()],
 					'm_token' => $this->getToken(),
 					'm_array' => $m_array
@@ -149,11 +143,9 @@
 			//TODO: validation post data
 			$this->m_error->POST($m_array);
 
-			XLog::log(
+			$this->m_log->log(
 				array(
 					'm_status' => true,
-					'm_runtime' => $this->m_runtime->get(),
-					'm_version' => $this->m_platform->get_version(),
 					'm_functionName' => $this->_functions[$this->getToken()],
 					'm_token' => $this->getToken(),
 					'm_array' => $m_array
