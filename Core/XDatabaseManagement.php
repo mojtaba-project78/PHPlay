@@ -30,8 +30,9 @@
 		private $is_connected;
 		private $_db2;
 
-		private $m_platform = null;
-		private $m_runtime = null;
+		protected $m_platform = null;
+		protected $m_runtime = null;
+		protected $m_log = null;
 
 		//===============================================================================
 		// TODO: get class name
@@ -40,10 +41,11 @@
 		}
 
 		//===============================================================================
-		public function __construct( XPlatform &$m_platform = null, XAppRuntime &$m_runtime )
+		public function __construct( XPlatform &$m_platform, XAppRuntime &$m_runtime, XLog &$m_log )
 		{
 			$this->m_platform = $m_platform;
 			$this->m_runtime = $m_runtime;
+			$this->m_log = $m_log;
 
 			try {
 				$this->_db = new PDO(sprintf("mysql:host=%s;dbname=%s;charset=utf8mb4", $this->hostname, $this->database), $this->username, $this->password);
@@ -54,7 +56,7 @@
 				$this->_db2 = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
 			} catch ( PDOException $pdo ) {
 				$this->is_connected = false;
-				XLog::log(
+				$this->m_log->log(
 					array(
 						"version" => $this->m_platform->get_version(),
 						'm_runtime' => $this->m_runtime->get(),
