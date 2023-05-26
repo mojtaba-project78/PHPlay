@@ -5,8 +5,7 @@
 	class XPlatform extends XVersionManagement
 	{
 		// TODO: get class name
-		public static function className()
-		{
+		public static function className() {
 			return get_class();
 		}
 
@@ -85,6 +84,39 @@
 					array(
 						'm_function' => XFunctionManagement::className(),
 						'm_text' => $this->logger(XFunctionManagement::className(), self::LOGGER_UPDATED, [ '__construct', 'my_example_function', 'my_example_function_post' ], "function 'fixArrayInput' added.")
+					),
+				]
+			);
+
+			$this->add_multiple_log(
+				[
+					array(
+						'm_function' => XErrorManagement::className(),
+						'm_text' => $this->logger(XErrorManagement::className(), self::LOGGER_UPDATED, [ '__construct', 'POST', 'GET' ], "update log item.")
+					),
+					array(
+						'm_function' => XFunctionManagement::className(),
+						'm_text' => $this->logger(XFunctionManagement::className(), self::LOGGER_UPDATED, [ '__construct', 'runToken', 'get_about', 'my_example_function', 'my_example_function_post' ], "update log item.")
+					),
+					array(
+						'm_function' => XLog::className(),
+						'm_text' => $this->logger(XLog::className(), self::LOGGER_UPDATED, [ '__construct', 'p', 'dump', 'log' ], "added preValue into json output.")
+					),
+					array(
+						'm_function' => XLog::className(),
+						'm_text' => $this->logger(XLog::className(), self::LOGGER_COMPLATED, [ '__invoke' ], "new function added.")
+					),
+					array(
+						'm_function' => XVersionManagement::className(),
+						'm_text' => $this->logger(XVersionManagement::className(), self::LOGGER_UPDATED, [ 'add_multiple_log', ], "fixed json array model.")
+					),
+					array(
+						'm_function' => 'HeaderManagement',
+						'm_text' => $this->logger('HeaderManagement', self::LOGGER_UPDATED, [ 'XErrorManagement', 'XLog', 'XFunctionManagement' ], "added field XLog to constructors.")
+					),
+					array(
+						'm_function' => 'index',
+						'm_text' => $this->logger('index', self::LOGGER_UPDATED, [ 'main' ], "update log item.")
 					),
 				]
 			);
