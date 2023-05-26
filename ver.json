@@ -1,0 +1,107 @@
+{
+	"m_status": true,
+	"m_functionName": "get_about",
+	"m_token": "a9a0849fbc3eb1f0ca2bde125debd4a7a58c80683d9023e621b7c18cb9c7084d",
+	"m_version_log": {
+		"0.4": [
+			{
+				"m_function": "XErrorManagement",
+				"m_text": "XErrorManagement this functions ( __construct & POST & GET ) updated.( update log item. )"
+			},
+			{
+				"m_function": "XFunctionManagement",
+				"m_text": "XFunctionManagement this functions ( __construct & runToken & get_about & my_example_function & my_example_function_post ) updated.( update log item. )"
+			},
+			{
+				"m_function": "XLog",
+				"m_text": "XLog this functions ( __construct & p & dump & log ) updated.( added preValue into json output. )"
+			},
+			{
+				"m_function": "XLog",
+				"m_text": "XLog this functions ( __invoke ) complated.( new function added. )"
+			},
+			{
+				"m_function": "XVersionManagement",
+				"m_text": "XVersionManagement this functions ( add_multiple_log ) updated.( fixed json array model. )"
+			},
+			{
+				"m_function": "HeaderManagement",
+				"m_text": "HeaderManagement this functions ( XErrorManagement & XLog & XFunctionManagement ) updated.( added field XLog to constructors. )"
+			},
+			{
+				"m_function": "index",
+				"m_text": "index this functions ( main ) updated.( update log item. )"
+			}
+		],
+		"0.3": [
+			{
+				"m_function": "XDatabaseManagement",
+				"m_text": "XDatabaseManagement this functions ( __construct & fixSingleInput & fixArrayInput & pagination & db ) complated.( class builded. )"
+			},
+			{
+				"m_function": "index",
+				"m_text": "index this functions ( __initialization ) updated.( variable m_database added. )"
+			},
+			{
+				"m_function": "HeaderManagement",
+				"m_text": "HeaderManagement this functions ( XDatabaseManagement & XFunctionManagement ) updated.( new class defined & updated. )"
+			},
+			{
+				"m_function": "XFunctionManagement",
+				"m_text": "XFunctionManagement this functions ( __construct & my_example_function & my_example_function_post ) updated.( function 'fixArrayInput' added. )"
+			}
+		],
+		"0.2": [
+			{
+				"m_function": "XErrorManagement",
+				"m_text": "XErrorManagement this functions ( POST & GET ) complated.( class builded. )"
+			},
+			{
+				"m_function": "HeaderManagement",
+				"m_text": "HeaderManagement this functions ( XErrorManagement & XFunctionManagement ) updated.( new class defined. )"
+			},
+			{
+				"m_function": "index",
+				"m_text": "index this functions ( my_example_function_post ) updated."
+			},
+			{
+				"m_function": "XFunctionManagement",
+				"m_text": "XFunctionManagement this functions ( className & __construct & my_example_function & my_example_function_post ) updated.( post & get validation & 'm_status' in functions added. )"
+			},
+			{
+				"m_function": "XLog",
+				"m_text": "XLog this functions ( log & p & dump ) updated.( This function is more personalized )"
+			}
+		],
+		"0.1": [
+			{
+				"m_function": "XPlatform",
+				"m_text": "XPlatform this functions ( version_adder & add_single_log & add_multiple_log ) complated."
+			},
+			{
+				"m_function": "XPlatform",
+				"m_text": "XPlatform this functions ( get_version & get_version_log & logger ) complated."
+			},
+			{
+				"m_function": "XAppRuntime",
+				"m_text": "XAppRuntime this functions ( className ) complated.( class builded. )"
+			},
+			{
+				"m_function": "XFunctionManagement",
+				"m_text": "XFunctionManagement this functions ( XFunctionManagement ) complated.( debugger mode defined )"
+			},
+			{
+				"m_function": "index",
+				"m_text": "index this functions ( index & __initialization ) updated.( debugger options defined )"
+			},
+			{
+				"m_function": "XFunctionManagement",
+				"m_text": "XFunctionManagement this functions ( XFunctionManagement ) complated.( class builded. )"
+			}
+		]
+	},
+	"m_platform": "PHPlay",
+	"m_platform_uri": "PHPlay v0.4",
+	"m_version": "0.4",
+	"m_runtime": "0.032"
+}
