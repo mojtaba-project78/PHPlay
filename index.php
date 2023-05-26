@@ -16,18 +16,15 @@
 	);
 
 	// TODO: debuging options
-	$m_function->runningDebuger(false);
+	$m_function->runningDebuger(true);
 	$m_function->__debugging(
-		function () use ( $m_function, $m_platform, $m_runtime ) {
+		function () use ( $m_function, $m_platform, $m_runtime, $m_log) {
 
-			XLog::log(
+			$m_log(
 				array(
 					'm_status' => true,
 					'm_debugging' => true,
-					'm_message' => 'Hello World!',
-					'm_api' => 'powered by phplay.',
-					'm_version' => $m_platform->get_version(),
-					'm_runtime' => $m_runtime->get()
+					'm_message' => 'Hello World!'
 				)
 			);
 
