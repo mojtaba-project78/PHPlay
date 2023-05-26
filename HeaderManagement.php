@@ -27,7 +27,7 @@
 	$m_log = new XLog($m_platform, $m_runtime);
 
 	// ### XDatabaseManagement
-	$m_database = new XDatabaseManagement($m_platform, $m_runtime);
+	$m_database = new XDatabaseManagement($m_platform, $m_runtime, $m_log);
 
 	// ### XErrorManagement
 	$m_error = new XErrorManagement($m_platform, $m_runtime, $m_log);
