@@ -16,7 +16,7 @@
 	);
 
 	// TODO: debuging options
-	$m_function->runningDebuger(true);
+	$m_function->runningDebuger(false);
 	$m_function->__debugging(
 		function () use ( $m_function, $m_platform, $m_runtime, $m_log) {
 
