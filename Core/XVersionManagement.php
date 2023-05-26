@@ -57,9 +57,7 @@
 				]);
 			}
 
-			array_push($this->_log, array(
-				(string)$this->_version => $this->_log_version
-			));
+			$this->_log[(string)$this->_version] = $this->_log_version;
 		}
 
 		//===============================================================================
